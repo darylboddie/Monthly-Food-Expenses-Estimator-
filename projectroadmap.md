@@ -1,0 +1,7 @@
+- [x] Create project title 
+- [x] Enter project title into Excel
+- [x] Join oranization channel
+- [x] Find similar project repository and clone it 
+- [x] Create readme.md file 
+- [x] Create projectroadmap.md file 
+- [x] Add repository to organization channel 
