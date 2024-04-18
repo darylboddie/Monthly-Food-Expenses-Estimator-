@@ -7,3 +7,9 @@
 - [x] Create and update projectroadmap.md file 
 - [x] Add repository to organization channel 
 - [x] Complete Sprint 1
+
+- [x] Start sprint 2
+- [x] Start coding
+- [ ] Update or edit codes
+- [ ] Commit changes
+- [ ] Complete sprint 2 
