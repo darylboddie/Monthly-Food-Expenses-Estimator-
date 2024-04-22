@@ -18,7 +18,7 @@ def init():
 def log(amount, category, message=""):
     from datetime import datetime
     date = str(datetime.now())
-    conn = sqlite3.connect("spent.db")
+    conn = db.connect("spent.db")
     cur = conn.cursor()
     sql = '''
     insert into expenses values (
@@ -36,9 +36,9 @@ def log(amount, category, message=""):
     except:
         print('\nExpense not saved. Try again')
 
-# View expenses for month or category 
+# View expenses for month and category 
 def view(date,category):
-    conn = sqlite3.connect("spent.db")
+    conn = db.connect("spent.db")
     cur = conn.cursor()
     if category.isalpha():
         sql = '''
@@ -54,7 +54,7 @@ def view(date,category):
 
         for expense in results:
             print(expense)
-        print('\nTotal:','$' + str(total_amount)*4.3)
+        print('\nTotal:','$' + str(total_amount))
 
 # Create introduction and instructions to explain the purpose of the code
 print("\nWelcome to Monthly Food Expenses!")
@@ -73,7 +73,7 @@ while True:
         log(cost,cat,msg)
     elif ans == "2":
         date = input("Enter the date (yyyy-mm)\n: ")
-        category = input("Enter the category you would like to review or press enter to vieew all expenses\n: ").title()
+        category = input("Enter the category you would like to review or press enter to view all expenses\n: ").title()
         print()
         view(category,date)
     elif ans.upper() == "Q":
