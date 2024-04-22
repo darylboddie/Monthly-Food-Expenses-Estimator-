@@ -10,8 +10,8 @@
 
 - [x] Start sprint 2
 - [x] Start coding
-- [ ] Update or edit codes
-- [ ] Commit changes
+- [x] Update or edit codes
+- [x] Commit changes
 - [ ] Complete sprint 2
 
 - [ ] PPT Splash Screen
