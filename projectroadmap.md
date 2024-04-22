@@ -12,4 +12,8 @@
 - [x] Start coding
 - [ ] Update or edit codes
 - [ ] Commit changes
-- [ ] Complete sprint 2 
+- [ ] Complete sprint 2
+
+- [ ] PPT Splash Screen
+- [ ] Finalize coding
+- [ ] Run code 
