@@ -1,5 +1,5 @@
 import sqlite3 as db
-
+# Create a database
 def init():
     conn = db.connect("spent.db")
     cur = conn.cursor()
@@ -14,7 +14,7 @@ def init():
     cur.execute(sql)
     conn.commit()
 
-
+# Track and input expense to the database
 def log(amount, category, message=""):
     from datetime import datetime
     date = str(datetime.now())
@@ -36,6 +36,7 @@ def log(amount, category, message=""):
     except:
         print('\nExpense not saved. Try again')
 
+# View expenses for month or category 
 def view(date,category):
     conn = sqlite3.connect("spent.db")
     cur = conn.cursor()
@@ -55,9 +56,11 @@ def view(date,category):
             print(expense)
         print('\nTotal:','$' + str(total_amount)*4.3)
 
+# Create introduction and instructions to explain the purpose of the code
 print("\nWelcome to Monthly Food Expenses!")
 print("View the total amount you have spent in a month for food")
 
+# Gather user input to use different functions if the input is true
 while True:
     print("1 - Enter the amount\n2 - View monthly food expense\nQ - Quit")
     ans = input(":")
