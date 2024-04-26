@@ -80,7 +80,7 @@ while True:
         category = input("Enter the category you would like to review or press enter to view all expenses\n: ").title()
         print()
         view(category,date)
-    elif ans.upper() == "Q":
+    elif ans.lower() == "q":
         print("Goodbye!\n")
         break
     
