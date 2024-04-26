@@ -62,16 +62,19 @@ print("View the total amount you have spent in a month for food")
 
 # Gather user input to use different functions if the input is true
 while True:
-    print("1 - Enter the amount\n2 - View monthly food expense\nQ - Quit")
+    print("1- Initialize database\n2 - Enter the amount\n3 - View monthly food expense\nQ - Quit")
     ans = input(":")
     print()
 
     if ans == "1":
+        init()
+        print('Database initialized')
+    if ans == "2":
         cost = input("What is the amount spent?\n: ")
         cat = input("Enter the expense category\n: ")
         msg = input("Where was the amount spent?\n: ")
         log(cost,cat,msg)
-    elif ans == "2":
+    elif ans == "3":
         date = input("Enter the date (yyyy-mm)\n: ")
         category = input("Enter the category you would like to review or press enter to view all expenses\n: ").title()
         print()
