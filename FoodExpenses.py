@@ -1,4 +1,4 @@
-import sqlite3 as db
+import sqlite3
 # Create a database
 def init():
     conn = db.connect("spent.db")
@@ -13,6 +13,7 @@ def init():
     '''
     cur.execute(sql)
     conn.commit()
+init()
 
 # Track and input expense to the database
 def log(amount, category, message=""):
