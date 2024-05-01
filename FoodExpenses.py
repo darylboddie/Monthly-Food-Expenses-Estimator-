@@ -27,8 +27,7 @@ def log(amount, category, message=""):
         '{}',
         '{}',
         '{}'
-          )
-          
+          )       
     '''.format(amount, category, message, date)
     try:
         cur.execute(sql)
@@ -38,7 +37,7 @@ def log(amount, category, message=""):
         print('\nExpense not saved. Try again')
 
 # View expenses for month and category 
-def view(date,category):
+def view(category, date):
     conn = sqlite3.connect("spent.db")
     cur = conn.cursor()
     if category.isalpha():
@@ -48,14 +47,20 @@ def view(date,category):
         sql2 = '''
         select sum(amount) from expenses where category = '{}' and date like '{}%'
         '''.format(category, date)
-        cur.execute(sql)
-        results = cur.fetchall()
-        cur.exceute(sql2)
-        total_amount = cur.fetchone()[0]
-
-        for expense in results:
-            print(expense)
-        print('\nTotal:','$' + str(total_amount))
+    else:
+        sql = '''
+        select * from expenses where date like '{}%'
+        '''.format(date)
+        sql2 = '''
+        select sum(amount) from expenses where date like '{}%'
+        '''.format(date)
+    cur.execute(sql)
+    results = cur.fetchall()
+    cur.execute(sql2)
+    total_amount = cur.fetchone()[0]
+    for expense in results:
+        print(expense)
+    print('\nTotal:','$' + str(total_amount))
 
 # Create introduction and instructions to explain the purpose of the code
 print("\nWelcome to Monthly Food Expenses!")
@@ -72,9 +77,9 @@ while True:
         print('Database initialized')
     if ans == "2":
         cost = input("What is the amount spent?\n: ")
-        category = input("Enter the expense category\n: ")
+        cat = input("Enter the expense category\n: ").title()
         msg = input("Where was the amount spent?\n: ")
-        log(cost,category,msg)
+        log(cost,cat,msg)
     elif ans == "3":
         date = input("Enter the date (yyyy-mm)\n: ")
         category = input("Enter the category you would like to review or press enter to view all expenses\n: ").title()
@@ -83,6 +88,7 @@ while True:
     elif ans.lower() == "q":
         print("Goodbye!\n")
         break
+
     
 
     
